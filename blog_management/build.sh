@@ -2,13 +2,8 @@
 
 set -o errexit
 
-echo "Installing dependencies..."
 pip install -r requirements.txt
 
-echo "Collecting static files..."
-python manage.py collectstatic --noinput
+python core/manage.py migrate
 
-echo "Running migrations..."
-python manage.py migrate
-
-echo "Build completed successfully."
+python core/manage.py collectstatic --noinput
