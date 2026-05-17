@@ -17,6 +17,8 @@ import dj_database_url
 
 load_dotenv()
 
+Frontend_url = os.getenv("FRONTEND_URL")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -187,11 +189,13 @@ AUTH_USER_MODEL = 'authentication.User'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5174",
+    Frontend_url
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5174",
+    Frontend_url
 ]
 
 CORS_ALLOW_CREDENTIALS = True  
